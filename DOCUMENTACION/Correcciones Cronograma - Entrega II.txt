@@ -1,0 +1,22 @@
+Grupo Nro. 5
+---------------
+	a. (CInt). Columna AC (¿Cuánto tiempo te llevó hacer la actividad?) tendría que estar completa en esta ver1. del cronograma. 
+
+	b. (CInt). Columna PV y AC tendrían que estar completas en esta ver1. del cronograma, la columna de "Estimación" es la que alimenta a la col PV.
+		
+	c. (CInt). En la Columna "Estimación", se copiaron y pegaron los mismos valores, para los ABMs, porque supusieron que todos tienen la misma 
+		complejidad en la lógica?, ademas el resto de los componentes son distintos en esa complejidadx ej. un carrito.(Comentario de Damian
+		para esta corrección)
+
+	d. Fila 9, 10, 11. (CCli) Se está aprobando el Costo y se está comprando y aprobando los servidores en el mismo momento, además "compra de servidores"
+		debería decir que acción tiene (Liberado o Aprobado)
+
+	e. Fila 35. (CCli). Deben completar la fecha para no dejar huecos. 
+
+	f. Fila 37. (CCli). Si colocan la Fecha de finalización del proyecto, "Ésto significa que le entregan al cliente TODOS los componentes del proyecto 
+		tal cual, sin excepción", o sea que en la defensa deberían mostrar todo lo que especificaron.
+
+		Recomendación: Sí no se les complica...todos los viernes deberían "juntarse" para discutir el tema de las horas AC y verlas reflejadas, 
+			para el seguimiento y control, recuerden como les comente en clase, que deben ser REALES para no tener problemas más adelante, 
+			a medida que entramos en el tema del avance. Es simplemente si pueden hacerlo y que se les haga mas facil el seguimiento 
+			del proyecto...saludos. Marcelo

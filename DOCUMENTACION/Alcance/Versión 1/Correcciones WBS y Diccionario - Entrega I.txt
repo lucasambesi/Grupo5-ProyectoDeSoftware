@@ -1,0 +1,52 @@
+Equipo Nro.5 (estas correcciones etán adjuntas en los Pdf de WBS y Diccionarios)
+--------------------------------------------------------------------------------------
+
+Corrección de la WBS:
+----------------------
+	1.1.1.1.2 Menú, faltaría el componente "1.1.1.1.2.4 Login" para completarlo.
+
+	Estaría faltando además del abm de usuario, el "gestor de Usuarios", para que el cliente, al momento de la compra pueda loguearse o hacer 
+		las acciones con respecto al registo/Cambio o recuperación de sus clave.
+	
+	Falta un componente para las opciones de Categorías de Google, al estilo del componente FaceBook.
+
+	Falta el Componente de "1.3.5 Cierre " dentro de la "1.3 Gestion de Proyecto"
+
+	1.2.1 Servidores, esto debería ser tomado como un "suspuesto" (suponemos que...), porque la empresa, es un Local de ventas 
+		y no sabemos si lo necesitamos contratar nosotros o el cliente ya lo tiene, por otro lado, el "1.1.3.3 Migración", está en la 
+		misma situación. Esto no esta en los requisitos primarios que nos pasaron.
+	
+	Falta desarrollas un componente dentro de "l 1.2 ABMs" que contenga la información del CLiente que se muestra en "1.1.1.2.2 Info cliente" 
+		al igual para un vendedor.
+
+	Aclaración: deberiamos rediseñar el componente "1.1.2", para definir los gestores de trabjo (Abms) y los que son de "desarrollo" ya que estan 
+		faltando algunos:
+		          Ej. 	   		1.1.2 Módulos 
+							!
+						----------------------------
+					1.1.2.1 ABMs		1.1.2.2 Desarrollo
+
+Corrección del Diccionario:
+---------------------------
+	Deberíamos tenerlo completo ya que esto lo lee el CLiente y busca lo que le quedo en duda sobre la WBS/EDT.
+	En la columna responsable normalmente va 1(uno) solo, como responsable segun el rol o el PM por ahora si no lo tienen.
+
+
+Estaría faltando: 
+-----------------
+	Aclaración: en la Descripción, tenemos ue hacer la conjunción, de un detalle de lo que hace nuestro componente y como lo vamos 
+		hacer, para que despues nos sea más facil, saber cuales son las "Actividades" para cuando lo trabajemos en el Cronograma. Por
+		eso es necesario que se trabaje con un nivel de Paquete de Trabajo (WP).
+
+	a. La col. "Descripción" en este caso tendría que estar complementa con lo que se colocó en la col. "Entregable".
+	b. Col. "Entregable", debe ser un Sustantivo y no un detalle de las actividades para armarlo. 
+		Ejemplo::
+			Me piden una pared, el entregable es la "Pared" y no sus paquetes de trabajo de como llego a la pared.
+	c. Col."Requisitos", esta asociada al entregable, donde se estables cuales son sus paquetes de trabajo.
+	c. Completar. Los Atributos de Calidad de la empresa, deben estar presentes ya que son puntos sumamente importantes para otro entregable
+		y poder tener la aprobación del producto.
+
+	d. Las opciones de la taxonomía de Google en las Categorías y Sub, más alla de una jerarquía de varios niveles, el cliente nos lo exige.
+
+
+
