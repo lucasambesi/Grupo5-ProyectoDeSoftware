@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="html" lang="en"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productos</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/styles.css">
+
+<link rel="icon" href="../../static/img/logo.png"
+	th:href="@{/img/logo.png}">
+</head>
+
+
+<!--
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet " href="../static/css/bootstrap.css " />
+    <script th:href="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.js "></script>
+    <script th:href="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js "></script>
+    <script th:href="@{/js/jquery.js}" src="../static/js/jquery.js "></script>
+    -->
+
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
+		style="background-color: black !important;">
+		<a class="navbar-brand" href="/index">Menu Principal</a>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+
+				<div class="btn-group">
+					<button id="boton" type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Productos</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" th:href="@{/producto/}">Ver
+							Productos</a> <a class="dropdown-item" href="#"
+							th:href="@{/producto/new}">Agregar Producto</a> <a
+							class="dropdown-item" href="#"
+							th:href="@{/producto/rankingproductosvendidos}">Ranking de
+							productos vendidos</a>
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>
+
+				<div class="btn-group">
+					<button id="boton" type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Solicitud Stock</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" th:href="@{/solicitudStock/}">Ver
+							Solicitudes Stock</a> <a class="dropdown-item" href="#"
+							th:href="@{/solicitudStock/new}">Agregar Solicitud Stock</a>
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>
+
+				<div class="btn-group">
+					<button id="boton" type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Lotes</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" th:href="@{/lote/}">Ver
+							Lotes</a> <a class="dropdown-item" href="#" th:href="@{/lote/new}">Agregar
+							Lote</a>
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>
+				<div class="btn-group">
+					<button id="boton" type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Empleados</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" th:href="@{/empleado/}">Ver
+							Empleados</a> <a class="dropdown-item" href="#"
+							th:href="@{/empleado/new}">Agregar Empleado</a> <a
+							class="dropdown-item" href="#"
+							th:href="@{/empleado/sueldosBruto}">SueldosEmpleados</a>
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>
+				<div class="btn-group">
+					<button id="boton" type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Clientes</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" th:href="@{/cliente/}">Ver
+							Clientes</a> <a class="dropdown-item" href="#"
+							th:href="@{/cliente/new}">Agregar Cliente</a>
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>
+				<div class="btn-group">
+					<button id="boton" type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Locales</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" th:href="@{/local/}">Ver
+							Locales</a> <a class="dropdown-item" href="#" th:href="@{/local/new}">Agregar
+							Local</a> <a class="dropdown-item" href="#"
+							th:href="@{/local/distanciaentrelocales}">Calcular distancia
+							entre Locales</a>
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>
+				<div class="btn-group">
+					<button id="boton" type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Pedidos</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" th:href="@{/pedido/}">Ver
+							Pedidos</a> <a class="dropdown-item" href="#"
+							th:href="@{/pedido/new}">Agregar Pedido</a>
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>
+
+				<div class="btn-group">
+					<button id="boton" type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Ventas</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" th:href="@{/venta/}">Ver
+							ventas realizadas</a> <a class="dropdown-item" href="#"
+							th:href="@{/venta/reporteventas}">Reporte Ventas</a>
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btn-group" id="logout">
+			<a class="btn btn-outline-light my-2 my-sm-0" href="#"
+				th:href="@{/logout}">Salir</a>
+		</div>
+	</nav>
+	<nav id="agregarTitulo">
+		<h1>Modificar Producto</h1>
+	</nav>
+	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+		<form action="#" th:action="@{/producto/update}"
+			th:object="${producto}" method="post">
+			<input type="hidden" th:field="*{idProducto}" />
+
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input type="text"
+					class="form-control" name="nombre" value="" th:field="*{nombre}"
+					placeholder="Escribir nombre" />
+			</div>
+			<div class="form-group">
+				<label for="descripcion">Descripción</label> <input type="text"
+					class="form-control" name="descripcion" th:field="*{descripcion}"
+					placeholder="Escribi la descripcion..." />
+			</div>
+			<div class="form-group">
+				<label for="precioUnitario">Precio</label> <input type="text"
+					class="form-control" name="precioUnitario"
+					th:field="*{precioUnitario}" placeholder="Escribir precio unitario" />
+			</div>
+			<input type="hidden" th:field="*{fechaAlta}" /> <input
+				class="btn btn-primary" type="submit" value="Editar" />
+		</form>
+
+		<form action="#" th:action="@{/empleado/back}" method="post">
+			<button type="submit" class="btn btn-dark" style="float: right">Volver</button>
+		</form>
+	</div>
+</body>
+</div>
+</html>
