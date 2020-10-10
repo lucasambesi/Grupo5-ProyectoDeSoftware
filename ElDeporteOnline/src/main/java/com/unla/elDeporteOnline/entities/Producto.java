@@ -48,7 +48,7 @@ public class Producto {
 	private boolean activo;
 	
 	@Column(name = "precio")
-	private float precio;
+	private float precio;	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idMoneda", nullable = false)

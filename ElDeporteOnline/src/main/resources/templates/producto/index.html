@@ -60,14 +60,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="producto : ${producto}">
+			<tr th:each="producto : ${productos}">
 				<td><span th:text="${producto.nombre}" /></td>
 				<td><span th:text="${producto.descripcionCorta}" /></td>
 				<td><span th:text="${producto.descripcionLarga}" /></td>
-				<td><span th:text="${producto.categoria}" /></td>
+				<td><span th:text="${producto.categoria.nombre}" /></td>
 				<td><span th:text="${producto.activo}" /></td>
 				<td><span th:text="${producto.precio}" /></td>
-				<td><span th:text="${producto.moneda}" /></td>
+				<td><span th:text="${producto.moneda.nombre}" /></td>
 				<td><a class="btn btn-warning"
 					th:href="@{/producto/{id}(id=${producto.idProducto})}">Modificar</a></td>
 				<td>

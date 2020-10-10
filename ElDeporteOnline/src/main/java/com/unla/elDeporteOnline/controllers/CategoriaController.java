@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.unla.elDeporteOnline.entities.Categoria;
 import com.unla.elDeporteOnline.helpers.ViewRouteHelpers;
 import com.unla.elDeporteOnline.models.CategoriaModel;
 import com.unla.elDeporteOnline.services.ICategoriaService;
@@ -27,7 +28,8 @@ public class CategoriaController {
 	@GetMapping("")
 	public ModelAndView index() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelpers.CATEGORIA_INDEX);
-		mAV.addObject("categoria", categoriaService.getAll());
+		mAV.addObject("categoria", new Categoria());
+		mAV.addObject("categorias", categoriaService.getAll());
 		return mAV;
 	}
 

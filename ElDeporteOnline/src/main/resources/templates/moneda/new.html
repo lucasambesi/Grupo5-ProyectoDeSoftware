@@ -1,0 +1,5 @@
+<form action="#" th:action="@{/moneda/create}" th:object="${moneda}" method="post">
+	<p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+	
+	<input type="submit" value="crear"/>
+</form>
