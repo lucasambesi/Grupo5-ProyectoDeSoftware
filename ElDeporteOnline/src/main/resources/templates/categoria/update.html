@@ -1,0 +1,7 @@
+<form action="#" th:action="@{/categoria/update}" th:object="${categoria}" method="post">
+	<input type="hidden" th:field="*{idCategoria}" />
+	<p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+	<p>Categoria Padre: <input type="text" th:field="*{idCategoriaPadre}" /></p>	
+	
+	<input type="submit" value="Modificar"/>
+</form>

@@ -1,0 +1,6 @@
+<form action="#" th:action="@{/categoria/create}" th:object="${categoria}" method="post">
+	<p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+	<p>Categoria Padre: <input type="text" th:field="*{idCategoriaPadre}" /></p>	
+	
+	<input type="submit" value="crear"/>
+</form>

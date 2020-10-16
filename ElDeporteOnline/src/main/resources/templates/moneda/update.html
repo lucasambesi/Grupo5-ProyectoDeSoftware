@@ -1,0 +1,6 @@
+<form action="#" th:action="@{/moneda/update}" th:object="${moneda}" method="post">
+	<input type="hidden" th:field="*{idMoneda}" />
+	<p>Nombre: <input type="text" th:field="*{nombre}" /></p>	
+	
+	<input type="submit" value="Modificar"/>
+</form>

@@ -3,9 +3,7 @@ package com.unla.elDeporteOnline.models;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.unla.elDeporteOnline.entities.Categoria;
 import com.unla.elDeporteOnline.entities.Imagen;
-import com.unla.elDeporteOnline.entities.Moneda;
 
 public class ProductoModel {
 	private long idProducto;
@@ -17,6 +15,7 @@ public class ProductoModel {
 	private boolean activo;
 	private float precio;
 	private MonedaModel moneda;
+	
 	private SkuModel sku;
 	//calificacion
 	

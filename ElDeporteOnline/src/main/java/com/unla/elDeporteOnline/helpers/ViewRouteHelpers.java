@@ -17,13 +17,20 @@ public class ViewRouteHelpers {
 	public final static String PRODUCTO_NEW = "producto/new";
 	public final static String PRODUCTO_UPDATE = "producto/update";
 	
+	// CATEGORIA
 	public final static String CATEGORIA_INDEX = "categoria/index";
 	public final static String CATEGORIA_NEW = "categoria/new";
 	public final static String CATEGORIA_UPDATE = "categoria/update";
 	
+	// OFERTA
 	public final static String OFERTA_INDEX = "oferta/index";
 	public final static String OFERTA_NEW = "oferta/new";
 	public final static String OFERTA_UPDATE = "oferta/update";
+	
+	// MONEDA
+	public final static String MONEDA_INDEX = "moneda/index";
+	public final static String MONEDA_NEW = "moneda/new";
+	public final static String MONEDA_UPDATE = "moneda/update";
 
 	
 	/**** Redirects ****/
@@ -34,5 +41,6 @@ public class ViewRouteHelpers {
 	public final static String PRODUCTO_ROOT = "/producto";
 	public final static String CATEGORIA_ROOT = "/categoria";
 	public final static String OFERTA_ROOT = "/oferta";
+	public final static String MONEDA_ROOT = "/moneda";
 
 }
