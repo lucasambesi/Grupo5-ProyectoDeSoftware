@@ -32,15 +32,21 @@ public class ViewRouteHelpers {
 	public final static String MONEDA_NEW = "moneda/new";
 	public final static String MONEDA_UPDATE = "moneda/update";
 
-	
+	// SKU
+	public final static String SKU_INDEX = "sku/index";
+	public final static String SKU_NEW = "sku/new";
+	public final static String SKU_UPDATE = "sku/update";
+
 	/**** Redirects ****/
 	public final static String ROUTE_INDEX = "/index";
 	public final static String ROUTE = "/index";
-
+	public final static String INSTITUCIONAL = "home/nosotros";
+	
 	public final static String EMPLEADO_ROOT = "/empleado";
 	public final static String PRODUCTO_ROOT = "/producto";
 	public final static String CATEGORIA_ROOT = "/categoria";
 	public final static String OFERTA_ROOT = "/oferta";
 	public final static String MONEDA_ROOT = "/moneda";
+	public final static String SKU_ROOT = "/sku";
 
 }

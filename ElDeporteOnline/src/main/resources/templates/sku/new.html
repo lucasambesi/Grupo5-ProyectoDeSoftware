@@ -1,0 +1,21 @@
+<form action="#" th:action="@{/sku/create}" th:object="${sku}"
+				method="post">
+				<div class="form-group">
+					<label for="descripcion">Descripcion</label> <input
+						type="text" class="form-control" th:field="*{descripcion}"
+						id="dato">
+				</div>
+				<div class="form-group">
+					<label for="codigo">Codigo</label> <input
+						type="text" class="form-control" th:field="*{codigo}"
+						id="dato">
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Producto</label> <select
+						class="form-control" id="exampleFormControlSelect1"
+						placeholder="Producto" th:field="*{producto.idProducto}">
+						<option th:each="p : ${producto}" th:value="${p.idProducto}"
+							th:text="${p.idProducto}"></option>
+					</select>
+					<button type="submit" class="btn btn-primary">Agregar</button>
+			</form>

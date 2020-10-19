@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.unla.elDeporteOnline.entities.Imagen;
+import com.unla.elDeporteOnline.entities.Sku;
 
 public class ProductoModel {
 	private long idProducto;
@@ -16,7 +17,7 @@ public class ProductoModel {
 	private float precio;
 	private MonedaModel moneda;
 	
-	private SkuModel sku;
+	private Set<Sku> listaSkus = new HashSet<Sku>();
 	//calificacion
 	
 	public ProductoModel() {
@@ -96,5 +97,12 @@ public class ProductoModel {
 		this.moneda = moneda;
 	}
 
-	
+	public Set<Sku> getListaSkus() {
+		return listaSkus;
+	}
+
+	public void setListaSkus(Set<Sku> listaSkus) {
+		this.listaSkus = listaSkus;
+	}
+
 }

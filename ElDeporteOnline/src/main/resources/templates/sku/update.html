@@ -1,0 +1,8 @@
+<form action="#" th:action="@{/sku/update}" th:object="${sku}" method="post">
+	<input type="hidden" th:field="*{idSku}" />
+	<p>Descripcion: <input type="text" th:field="*{descripcion}" /></p>
+	<p>Codigo: <input type="text" th:field="*{codigo}" /></p>
+ 	<p>Producto: <input type="number" th:field="*{producto.idProducto}" /></p> 	
+	
+	<input type="submit" value="Modificar"/>
+</form>

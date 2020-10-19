@@ -28,7 +28,13 @@ public class HomeController {
 
 		return modelAndView;
 	}
+	
+	@GetMapping("/nosotros")
+	public ModelAndView institucional() {
+		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.INSTITUCIONAL);
 
+		return modelAndView;
+	}
 	// GET Example: SERVER/hello?name=someName
 	@GetMapping("/hello")
 	public ModelAndView helloParams1(
