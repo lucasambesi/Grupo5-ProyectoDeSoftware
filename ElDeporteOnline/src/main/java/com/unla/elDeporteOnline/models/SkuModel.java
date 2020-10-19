@@ -1,26 +1,28 @@
 package com.unla.elDeporteOnline.models;
 
 public class SkuModel {
-    private int idSku;
+    private long idSku;
     private String descripcion;
+    private String codigo;
     private ProductoModel producto;
 
     public SkuModel() {
         super();
     }
 
-    public SkuModel(int idSku, String descripcion, ProductoModel producto) {
+    public SkuModel(long idSku, String descripcion, String codigo, ProductoModel producto) {
         super();
         this.idSku = idSku;
         this.descripcion = descripcion;
+        this.codigo = codigo;
         this.producto = producto;
     }
 
-    public int getIdSku() {
+    public long getIdSku() {
         return idSku;
     }
 
-    public void setIdSku(int idSku) {
+    public void setIdSku(long idSku) {
         this.idSku = idSku;
     }
 
@@ -32,7 +34,15 @@ public class SkuModel {
         this.descripcion = descripcion;
     }
 
-    public ProductoModel getProducto() {
+    public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public ProductoModel getProducto() {
         return producto;
     }
 

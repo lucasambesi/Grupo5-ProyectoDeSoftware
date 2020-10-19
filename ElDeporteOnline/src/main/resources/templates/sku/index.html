@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Productos</title>
+<title>Sku</title>
 <link
 	href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap"
 	rel="stylesheet">
@@ -42,53 +42,44 @@
     -->
 
 
-<body>
+	<body>
+		<h1 id="header">Sku</h1>
+		<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+			th:if="${mensaje != null}" th:text="${mensaje}" class="alert"></div>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr class="bg-info">
+					<th>Id</th>
+					<th>Descripcion</th>
+					<th>Codigo</th>
+					<th>Producto</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="sku : ${sku}">
+					<td><span th:text="${sku.idSku}" /></td>
+					<td><span th:text="${sku.descripcion}" /></td>
+					<td><span th:text="${sku.codigo}" /></td>
+					<td><span th:text="${sku.producto}" /></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/sku/{id}(id=${sku.idSku})}">Modificar</a></td>
+					<td>
+						<form action="#"
+							th:action="@{/sku/delete/{id}(id=${sku.idSku})}"
+							method="post">
+							<button type="submit" class="btn btn-danger">Elminar
+								SKU</button>
 
-	<h1 id="header">Productos</h1>
-	<table class="table">
-		<thead class="thead-dark">
-			<tr class="bg-info">
-				<th>Id</th>
-				<th>Nombre</th>
-				<th>Descripcion corta</th>
-				<th>Descripcion larga</th>
-				<th>Categoria</th>
-				<th>Activo</th>
-				<th>Precio</th>
-				<th>Moneda</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="producto : ${productos}">
-				<td><span th:text="${producto.idProducto}" /></td>
-				<td><span th:text="${producto.nombre}" /></td>
-				<td><span th:text="${producto.descripcionCorta}" /></td>
-				<td><span th:text="${producto.descripcionLarga}" /></td>
-				<td><span th:text="${producto.categoria.nombre}" /></td>
-				<td><span th:text="${producto.activo}" /></td>
-				<td><span th:text="${producto.precio}" /></td>
-				<td><span th:text="${producto.moneda.nombre}" /></td>
-				<td><a class="btn btn-warning"
-					th:href="@{/producto/{id}(id=${producto.idProducto})}">Modificar</a></td>
-				<td>
-					<form action="#"
-						th:action="@{/producto/delete/{id}(id=${producto.idProducto})}"
-						method="post">
-						<button type="submit" class="btn btn-danger">Eliminar
-							Producto</button>
-					</form>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-primary" href="/sku/new">Agregar</a>
 
-	<a class="btn btn-primary" href="/producto/new">Agregar</a>
 
-	<footer> Grupo 5 - Romano Sebastián Félix, Aguirre Rodrigo, Ambesi Lucas
-		Grimberg Kevin y Hermida Pablo </footer>
-
-</body>
+	</body>
 
 </html>

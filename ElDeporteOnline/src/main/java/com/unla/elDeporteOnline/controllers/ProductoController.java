@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.unla.elDeporteOnline.services.ICategoriaService;
-import com.unla.elDeporteOnline.services.IMonedaService;
+//import com.unla.elDeporteOnline.services.IMonedaService;
 import com.unla.elDeporteOnline.services.IProductoService;
 import com.unla.elDeporteOnline.entities.Producto;
 import com.unla.elDeporteOnline.helpers.ViewRouteHelpers;
@@ -34,7 +34,7 @@ public class ProductoController {
 	
 	@Autowired
 	@Qualifier("monedaService")
-	private IMonedaService monedaService;
+	//private IMonedaService monedaService;
 	
 		
 	@GetMapping("")
@@ -65,7 +65,7 @@ public class ProductoController {
 	public RedirectView agregar(@ModelAttribute("producto") ProductoModel productoModel){		
 		productoModel = productoService.insert(productoModel);		
 		productoModel.setCategoria(categoriaService.findByIdCategoria(productoModel.getCategoria().getIdCategoria())); 
-		productoModel.setMoneda(monedaService.findByIdMoneda(productoModel.getMoneda().getIdMoneda()));
+		//productoModel.setMoneda(monedaService.findByIdMoneda(productoModel.getMoneda().getIdMoneda()));
 		
 		productoModel = productoService.update(productoModel);
 		return new RedirectView(ViewRouteHelpers.PRODUCTO_ROOT);
