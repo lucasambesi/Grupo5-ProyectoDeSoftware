@@ -11,7 +11,7 @@ public class Moneda {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idMoneda;
+	private long idMoneda;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -20,17 +20,17 @@ public class Moneda {
 		super();
 	}
 
-	public Moneda(int idMoneda, String nombre) {
+	public Moneda(long idMoneda, String nombre) {
 		super();
 		this.idMoneda = idMoneda;
 		this.nombre = nombre;
 	}
 
-	public int getIdMoneda() {
+	public long getIdMoneda() {
 		return idMoneda;
 	}
 
-	public void setIdMoneda(int idMoneda) {
+	public void setIdMoneda(long idMoneda) {
 		this.idMoneda = idMoneda;
 	}
 

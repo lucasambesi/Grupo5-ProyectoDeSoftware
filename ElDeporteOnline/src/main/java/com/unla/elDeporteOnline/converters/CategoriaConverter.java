@@ -16,9 +16,9 @@ public class CategoriaConverter {
 	private CategoriaConverter categoriaConverter;
 	
 	public CategoriaModel entityToModel(Categoria categoria) {
-		return new CategoriaModel(categoria.getIdCategoria(),categoria.getNombre(),categoria.getIdCategoriaPadre());
+		return new CategoriaModel(categoria.getIdCategoria(),categoria.getNombre(),categoria.getListaSubcategorias());
 	}
 	public Categoria modelToEntity(CategoriaModel categoriaModel) {
-		return new Categoria(categoriaModel.getIdCategoria(),categoriaModel.getNombre(),categoriaModel.getIdCategoriaPadre());
+		return new Categoria(categoriaModel.getIdCategoria(),categoriaModel.getNombre(),categoriaModel.getListaSubcategorias());
 	}
 }

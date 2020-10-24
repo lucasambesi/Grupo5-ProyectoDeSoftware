@@ -1,24 +1,24 @@
 package com.unla.elDeporteOnline.models;
 
 public class MonedaModel {
-	private int idMoneda;
+	private long idMoneda;
 	private String nombre;
 	
 	public MonedaModel() {
 		super();
 	}
 
-	public MonedaModel(int idMoneda, String nombre) {
+	public MonedaModel(long idMoneda, String nombre) {
 		super();
 		this.idMoneda = idMoneda;
 		this.nombre = nombre;
 	}
 
-	public int getIdMoneda() {
+	public long getIdMoneda() {
 		return idMoneda;
 	}
 
-	public void setIdMoneda(int idMoneda) {
+	public void setIdMoneda(long idMoneda) {
 		this.idMoneda = idMoneda;
 	}
 

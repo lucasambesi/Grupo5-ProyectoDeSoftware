@@ -8,20 +8,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
     <title>El Deporte Online</title>
   </head>
   <body style="padding-top: 3.3%;">
 
     <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
+        <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
           <div class="bg-dark p-4">
             <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="CatalogoProductos.html">Catálogo de Productos</a>
+                  <a class="nav-link" href="catalogo">Catálogo de Productos</a>
                   <a class="nav-link" href="formulariocontacto">Formulario de Contacto</a>
                   <a class="nav-link" href="nosotros">Nosotros</a>
-                </li>
+                  <a class="nav-link" href="categoria">ABM Categorias</a>
+                  <a class="nav-link" href="subCategorias">ABM subCategorias</a>
+				  <a class="nav-link" href="producto">ABM Productos</a>
+				  <a class="nav-link" href="moneda">ABM Monedas</a>                  
+                </li>                
+                
             </ul>
           </div>
         </div>
@@ -29,6 +35,9 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          
+          <a class="nav-link" href="carrito"> <i class="fas fa-cart-plus"> </i> Carrito</a>  <!-- (<label style= "color: orange">${contador} </label>) -->
+           
           <a href="index" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">El Deporte Online</a>
         </nav>
       </div>
@@ -43,7 +52,12 @@
       </div>
       
       <h4 style="text-align: center; margin-top: 100px;">Productos Destacados</h4>
-    <div class="productosDestacados">
+    
+   
+	
+										  
+     <div class="productosDestacados">
+    
       <div class="card">
         <img src="img/camisetaRojo.jpg" class="card-img-top" alt="...">
         <div class="card-body">
@@ -90,11 +104,14 @@
           <h5 class="card-title">Camiseta de Rasin Club</h5>
           <p class="card-text">Camiseta titular de Rasin Club 2019/20</p>
           <p class="card-text">Precio: $17,50</p>
-          <a href="#" class="btn btn-primary">Agregar al carrito</a>
+          <form action="#" th:action="@{/carrito/agregarCarrito/{id}(id=1)}" method="post">
+				<button type="submit" class="btn btn-primary">Agregar al Carrito</button>
+			</form>
         </div>
       </div>
-    </div>
+    </div> 
 
+	
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

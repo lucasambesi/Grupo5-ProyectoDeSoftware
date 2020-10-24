@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta content="width=device-width, initial-scale=1.0" name="viewport">
-		<title>Monedas</title>
+		<title>Subcategorias</title>
 		<meta content="" name="descriptison">
 		<meta content="" name="keywords">
 		<!-- Favicons -->
@@ -45,7 +45,7 @@
 			<section id="breadcrumbs" class="breadcrumbs">
 				<div class="container">
 					<div class="d-flex justify-content-between align-items-center">
-						<h2>Administrar Monedas</h2>
+						<h2>Administrar Subcategorias</h2>
 						<ol>
 							 <a style="margin-top: 7px;" href="index" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">El Deporte Online</a> 
 						</ol>
@@ -56,21 +56,23 @@
 					<table class="table" id="table">
 						<tr>
 							<th scope="col">ID</th>
-							<th scope="col">Nombre</th>							
+							<th scope="col">Nombre</th>
+							<th scope="col">Categoria</th>
 							<th scope="col"></th>
 							<th scope="col"></th>
 						</tr>
 						</thead>
 						<tbody>
-							<tr th:each="moneda : ${monedas}">
-								<form th:action="@{/moneda/{id}(id=${moneda.idMoneda})}" 	method="get" role="form">
-									<td><span th:text="${moneda.idMoneda}" /></td>
-									<td><span th:text="${moneda.nombre}" /></td>									
+							<tr th:each="subcategoria : ${subcategorias}">
+								<form th:action="@{/subcategoria/{id}(id=${subcategoria.idSubcategoria})}" 	method="get" role="form">
+									<td><span th:text="${subcategoria.idSubcategoria}" /></td>
+									<td><span th:text="${subcategoria.nombre}" /></td>
+									<td><span th:text="${subcategoria.categoria.nombre}" /></td>
 									<td><input type="image" src="../../img/lapiz.png"  title="Modificar" /></td>
 								</form>
 								<td>
 									<form
-										th:action="@{/moneda/delete/{id}(id=${moneda.idMoneda})}"
+										th:action="@{/subcategoria/delete/{id}(id=${subcategoria.idSubcategoria})}"
 										method="post" role="form">
 										<input type="image" src="../../img/basura.png"  title="Eliminar" />
 									</form>
@@ -80,7 +82,7 @@
 					</table>
 					<br> <br> <br>
 					
-					<a href="/moneda/new">Agregar</a>
+					<a href="/subcategoria/new">Agregar</a>
 					
 				</div>
 				<!-- Modal -->

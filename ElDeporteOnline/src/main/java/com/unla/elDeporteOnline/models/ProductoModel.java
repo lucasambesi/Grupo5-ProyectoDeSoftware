@@ -11,11 +11,12 @@ public class ProductoModel {
 	private String nombre;
 	private String descripcionCorta;
 	private String descripcionLarga;
-	private CategoriaModel categoria;
+	private SubcategoriaModel subcategoria;
 	private Set<Imagen> listaImagenes = new HashSet<Imagen>();
 	private boolean activo;
 	private float precio;
 	private MonedaModel moneda;
+	private String foto;
 	
 	private Set<Sku> listaSkus = new HashSet<Sku>();
 	//calificacion
@@ -25,16 +26,17 @@ public class ProductoModel {
 	}
 	
 	public ProductoModel(long idProducto, String nombre, String descripcionCorta, String descripcionLarga,
-			CategoriaModel categoria, boolean activo, float precio, MonedaModel moneda) {
+			SubcategoriaModel subcategoria, boolean activo, float precio, MonedaModel moneda, String foto) {
 		super();
 		this.idProducto = idProducto;
 		this.nombre = nombre;
 		this.descripcionCorta = descripcionCorta;
 		this.descripcionLarga = descripcionLarga;
-		this.categoria = categoria;
+		this.subcategoria = subcategoria;
 		this.activo = activo;
 		this.precio = precio;
 		this.moneda = moneda;
+		this.foto = foto;
 	}
 	
 
@@ -63,11 +65,11 @@ public class ProductoModel {
 		this.descripcionLarga = descripcionLarga;
 	}
 	
-	public CategoriaModel getCategoria() {
-		return categoria;
+	public SubcategoriaModel getSubcategoria() {
+		return subcategoria;
 	}
-	public void setCategoria(CategoriaModel categoria) {
-		this.categoria = categoria;
+	public void setSubcategoria(SubcategoriaModel subcategoria) {
+		this.subcategoria = subcategoria;
 	}
 	
 	public Set<Imagen> getListaImagenes() {
@@ -104,5 +106,15 @@ public class ProductoModel {
 	public void setListaSkus(Set<Sku> listaSkus) {
 		this.listaSkus = listaSkus;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
 
 }

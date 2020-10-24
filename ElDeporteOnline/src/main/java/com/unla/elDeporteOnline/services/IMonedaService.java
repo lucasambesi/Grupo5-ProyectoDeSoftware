@@ -12,7 +12,7 @@ public interface IMonedaService {
 
 	public List<MonedaModel> getAlls();
 
-	public MonedaModel findByIdMoneda(int idMoneda);
+	public MonedaModel findByIdMoneda(long idMoneda);
 
 	public MonedaModel insert(MonedaModel monedaModel);
 

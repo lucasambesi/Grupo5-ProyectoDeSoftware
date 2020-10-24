@@ -1,7 +1,9 @@
 package com.unla.elDeporteOnline.entities;
 
 import java.time.LocalDate;
+
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -17,7 +19,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.unla.elDeporteOnline.entities.Producto;
+
 
 @Entity
 @Table(name = "categoria")
@@ -30,11 +34,8 @@ public class Categoria {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "idCategoriaPadre")
-	private long idCategoriaPadre;
-
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria")
-	private Set<Producto> listaProductos = new HashSet<Producto>();
+	private Set<Subcategoria> listaSubcategorias = new HashSet<Subcategoria>();
 
 
 	public Categoria() {
@@ -42,11 +43,18 @@ public class Categoria {
 	}
 
 
-	public Categoria(long idCategoria, String nombre, long idCategoriaPadre) {
+	public Categoria(long idCategoria, String nombre) {
 		super();
 		this.idCategoria = idCategoria;
 		this.nombre = nombre;
-		this.idCategoriaPadre = idCategoriaPadre;
+	}
+
+
+	public Categoria(long idCategoria, String nombre, Set<Subcategoria> listaSubcategorias) {
+		super();
+		this.idCategoria = idCategoria;
+		this.nombre = nombre;
+		this.listaSubcategorias = listaSubcategorias;
 	}
 
 
@@ -70,24 +78,16 @@ public class Categoria {
 	}
 
 
-	public long getIdCategoriaPadre() {
-		return idCategoriaPadre;
+	public Set<Subcategoria> getListaSubcategorias() {
+		return listaSubcategorias;
 	}
 
 
-	public void setIdCategoriaPadre(long idCategoriaPadre) {
-		this.idCategoriaPadre = idCategoriaPadre;
+	public void setListaSubcategorias(Set<Subcategoria> listaSubcategorias) {
+		this.listaSubcategorias = listaSubcategorias;
 	}
 
 
-	public Set<Producto> getListaProductos() {
-		return listaProductos;
-	}
-
-
-	public void setListaProductos(Set<Producto> listaProductos) {
-		this.listaProductos = listaProductos;
-	}
 	
 	
 }

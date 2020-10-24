@@ -50,7 +50,7 @@ public class MonedaService implements IMonedaService{
 	}
 
 
-	public MonedaModel findByIdMoneda(int idMoneda) {
+	public MonedaModel findByIdMoneda(long idMoneda) {
 		return monedaConverter.entityToModel(monedaRepository.findByIdMoneda(idMoneda));
 	}
 

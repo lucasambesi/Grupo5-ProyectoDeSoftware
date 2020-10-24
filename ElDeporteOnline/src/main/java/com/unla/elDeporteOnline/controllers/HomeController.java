@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.unla.elDeporteOnline.entities.Producto;
 import com.unla.elDeporteOnline.helpers.ViewRouteHelpers;
 
 @Controller
@@ -18,6 +19,20 @@ public class HomeController {
 	@GetMapping("/index")
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.INDEX);
+
+		return modelAndView;
+	}
+	
+	@GetMapping("/cliente")
+	public ModelAndView cli() {
+		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.CLI);
+
+		return modelAndView;
+	}
+	
+	@GetMapping("/empresa")
+	public ModelAndView emp() {
+		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.EMP);
 
 		return modelAndView;
 	}
@@ -35,6 +50,8 @@ public class HomeController {
 
 		return modelAndView;
 	}
+	
+		
 	// GET Example: SERVER/hello?name=someName
 	@GetMapping("/hello")
 	public ModelAndView helloParams1(

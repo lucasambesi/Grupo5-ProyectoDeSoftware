@@ -4,22 +4,29 @@ import java.util.HashSet;
 import java.util.Set;
 import com.unla.elDeporteOnline.entities.Categoria;
 import com.unla.elDeporteOnline.entities.Producto;
+import com.unla.elDeporteOnline.entities.Subcategoria;
 
 public class CategoriaModel {
 
 	private long idCategoria;
 	private String nombre;
-	private long idCategoriaPadre;
-	private Set<Producto> listaProductos = new HashSet<Producto>();
+	private Set<Subcategoria> listaSubcategorias = new HashSet<Subcategoria>();
 	
 	public CategoriaModel() {
 	}
 
-	public CategoriaModel(long idCategoria, String nombre, long idCategoriaPadre) {
+	public CategoriaModel(long idCategoria, String nombre) {
 		super();
 		this.idCategoria = idCategoria;
 		this.nombre = nombre;
-		this.idCategoriaPadre = idCategoriaPadre;
+	}
+
+	
+	public CategoriaModel(long idCategoria, String nombre, Set<Subcategoria> listaSubcategorias) {
+		super();
+		this.idCategoria = idCategoria;
+		this.nombre = nombre;
+		this.listaSubcategorias = listaSubcategorias;
 	}
 
 	public long getIdCategoria() {
@@ -38,21 +45,15 @@ public class CategoriaModel {
 		this.nombre = nombre;
 	}
 
-	public long getIdCategoriaPadre() {
-		return idCategoriaPadre;
+	public Set<Subcategoria> getListaSubcategorias() {
+		return listaSubcategorias;
 	}
 
-	public void setIdCategoriaPadre(long idCategoriaPadre) {
-		this.idCategoriaPadre = idCategoriaPadre;
+	public void setListaSubcategorias(Set<Subcategoria> listaSubcategorias) {
+		this.listaSubcategorias = listaSubcategorias;
 	}
 
-	public Set<Producto> getListaProductos() {
-		return listaProductos;
-	}
-
-	public void setListaProductos(Set<Producto> listaProductos) {
-		this.listaProductos = listaProductos;
-	}
+	
 	
 	
 	

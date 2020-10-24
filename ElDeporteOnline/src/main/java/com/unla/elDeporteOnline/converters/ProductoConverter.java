@@ -12,8 +12,8 @@ import com.unla.elDeporteOnline.models.ProductoModel;
 public class ProductoConverter {
 
     @Autowired
-    @Qualifier("categoriaConverter")
-    private CategoriaConverter categoriaConverter;
+    @Qualifier("subcategoriaConverter")
+    private SubcategoriaConverter subcategoriaConverter;
 
     @Autowired
     @Qualifier("monedaConverter")
@@ -21,14 +21,15 @@ public class ProductoConverter {
 
     public ProductoModel entityToModel(Producto producto) {
         return new ProductoModel(producto.getIdProducto(), producto.getNombre() ,producto.getDescripcionCorta(), 
-                    producto.getDescripcionLarga(), categoriaConverter.entityToModel(producto.getCategoria()), producto.isActivo(), 
-                    producto.getPrecio(), monedaConverter.entityToModel(producto.getMoneda()));
+                    producto.getDescripcionLarga(), subcategoriaConverter.entityToModel(producto.getSubcategoria()), producto.isActivo(), 
+                    producto.getPrecio(), monedaConverter.entityToModel(producto.getMoneda()), producto.getFoto());
         }
 
         public Producto modelToEntity(ProductoModel productoModel) {
             return new Producto(productoModel.getIdProducto(), productoModel.getNombre(), productoModel.getDescripcionCorta(),
-                    productoModel.getDescripcionLarga(), categoriaConverter.modelToEntity(productoModel.getCategoria()), 
-                    productoModel.isActivo(), productoModel.getPrecio(), monedaConverter.modelToEntity(productoModel.getMoneda()));
+                    productoModel.getDescripcionLarga(), subcategoriaConverter.modelToEntity(productoModel.getSubcategoria()), 
+                    productoModel.isActivo(), productoModel.getPrecio(), monedaConverter.modelToEntity(productoModel.getMoneda()),
+                    productoModel.getFoto());
         }
 
 }

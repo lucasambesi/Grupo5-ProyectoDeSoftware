@@ -43,16 +43,22 @@
 
 
 <body>
-
-	<h1 id="header">Productos</h1>
+	<div class="container">
+		<div class="d-flex justify-content-between align-items-center">
+			<h2>Administrar Productos</h2>
+				<ol>
+			 		 <a style="margin-top: 7px;" href="index" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">El Deporte Online</a> 
+				</ol>
+		</div>
 	<table class="table">
 		<thead class="thead-dark">
 			<tr class="bg-info">
+				<th> </th>
 				<th>Id</th>
 				<th>Nombre</th>
 				<th>Descripcion corta</th>
 				<th>Descripcion larga</th>
-				<th>Categoria</th>
+				<th>Subcategoria</th>
 				<th>Activo</th>
 				<th>Precio</th>
 				<th>Moneda</th>
@@ -62,11 +68,12 @@
 		</thead>
 		<tbody>
 			<tr th:each="producto : ${productos}">
+				<td> <img <img width="100px" height="100px" th:src="@{'/uploads/'+${producto.foto}}"> </td>
 				<td><span th:text="${producto.idProducto}" /></td>
 				<td><span th:text="${producto.nombre}" /></td>
 				<td><span th:text="${producto.descripcionCorta}" /></td>
 				<td><span th:text="${producto.descripcionLarga}" /></td>
-				<td><span th:text="${producto.categoria.nombre}" /></td>
+				<td><span th:text="${producto.subcategoria.nombre}" /></td>
 				<td><span th:text="${producto.activo}" /></td>
 				<td><span th:text="${producto.precio}" /></td>
 				<td><span th:text="${producto.moneda.nombre}" /></td>
@@ -86,9 +93,9 @@
 
 	<a class="btn btn-primary" href="/producto/new">Agregar</a>
 
-	<footer> Grupo 5 - Romano Sebastián Félix, Aguirre Rodrigo, Ambesi Lucas
-		Grimberg Kevin y Hermida Pablo </footer>
-
+	<footer> Grupo 5 - Romano Sebastián Félix, Aguirre Rodrigo, Ambesi Lucas,
+		Grimberg Kevin, Hermida Pablo </footer>
+	</div>
 </body>
 
 </html>

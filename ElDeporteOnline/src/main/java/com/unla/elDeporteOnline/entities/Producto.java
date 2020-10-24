@@ -16,12 +16,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.unla.elDeporteOnline.models.CategoriaModel;
 import com.unla.elDeporteOnline.models.MonedaModel;
 import com.unla.elDeporteOnline.models.SkuModel;
 
 @Entity
+@Table(name = "producto")
 public class Producto {
 	
 	@Id
@@ -38,8 +40,8 @@ public class Producto {
 	private String descripcionLarga;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idCategoria", nullable = false)
-	private Categoria categoria;
+	@JoinColumn(name = "idSubcategoria", nullable = false)
+	private Subcategoria subcategoria;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
 	private Set<Imagen> listaImagenes = new HashSet<Imagen>();
@@ -57,22 +59,26 @@ public class Producto {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
 	private Set<Sku> listaSku = new HashSet<Sku>();
 	
+	@Column(name = "foto")
+	private String foto;
+	
 	//calificacion
 
 	public Producto() {
 		super();
 	}
 
-	public Producto(long idProducto, String nombre, String descripcionCorta, String descripcionLarga, Categoria categoria, boolean activo, float precio, Moneda moneda) {
+	public Producto(long idProducto, String nombre, String descripcionCorta, String descripcionLarga, Subcategoria subcategoria, boolean activo, float precio, Moneda moneda, String foto) {
 		super();
 		this.idProducto = idProducto;
 		this.nombre = nombre;
 		this.descripcionCorta = descripcionCorta;
 		this.descripcionLarga = descripcionLarga;
-		this.categoria = categoria;
+		this.subcategoria = subcategoria;
 		this.activo = activo;
 		this.precio = precio;
 		this.moneda = moneda;
+		this.foto = foto;
 	}
 
 	public long getIdProducto() {
@@ -107,12 +113,12 @@ public class Producto {
 		this.descripcionLarga = descripcionLarga;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public Subcategoria getSubcategoria() {
+		return subcategoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setSubcategoria(Subcategoria subcategoria) {
+		this.subcategoria = subcategoria;
 	}
 
 	public boolean isActivo() {
@@ -154,6 +160,16 @@ public class Producto {
 	public void setListaSku(Set<Sku> listaSku) {
 		this.listaSku = listaSku;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
 	
 	
 	

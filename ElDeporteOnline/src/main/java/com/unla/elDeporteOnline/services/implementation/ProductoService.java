@@ -12,7 +12,9 @@ import com.unla.elDeporteOnline.converters.ProductoConverter;
 import com.unla.elDeporteOnline.entities.Producto;
 import com.unla.elDeporteOnline.models.ProductoModel;
 import com.unla.elDeporteOnline.repositories.IProductoRepository;
+import com.unla.elDeporteOnline.services.IMonedaService;
 import com.unla.elDeporteOnline.services.IProductoService;
+import com.unla.elDeporteOnline.services.ISubcategoriaService;
 
 @Service("productoService")
 public class ProductoService implements IProductoService{
@@ -24,6 +26,14 @@ public class ProductoService implements IProductoService{
 	@Autowired
 	@Qualifier("productoConverter")
 	private ProductoConverter productoConverter;
+	
+	@Autowired
+	@Qualifier("subcategoriaService")
+	private ISubcategoriaService subcategoriaService;
+	
+	@Autowired
+	@Qualifier("monedaService")
+	private IMonedaService monedaService;
 
 	@Override
 	public List<Producto> getAll() {
@@ -51,6 +61,8 @@ public class ProductoService implements IProductoService{
 
 	@Override
 	public ProductoModel insert(ProductoModel productoModel) {
+		productoModel.setSubcategoria(subcategoriaService.findByIdSubcategoria(productoModel.getSubcategoria().getIdSubcategoria()));
+		productoModel.setMoneda(monedaService.findByIdMoneda(productoModel.getMoneda().getIdMoneda()));
 		Producto producto = productoRepository.save(productoConverter.modelToEntity(productoModel));
 		return productoConverter.entityToModel(producto);
 	}

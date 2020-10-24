@@ -1,8 +1,75 @@
-<form action="#" th:action="@{/sku/update}" th:object="${sku}" method="post">
-	<input type="hidden" th:field="*{idSku}" />
-	<p>Descripcion: <input type="text" th:field="*{descripcion}" /></p>
-	<p>Codigo: <input type="text" th:field="*{codigo}" /></p>
- 	<p>Producto: <input type="number" th:field="*{producto.idProducto}" /></p> 	
-	
-	<input type="submit" value="Modificar"/>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<title>SKUs</title>
+		<meta content="" name="descriptison">
+		<meta content="" name="keywords">
+		<!-- Favicons -->
+		<link href="../../img/favicon.png" rel="icon">
+		<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon">
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+			rel="stylesheet">
+		<!-- Vendor CSS Files -->
+		<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../vendor/icofont/icofont.min.css" rel="stylesheet">
+		<link href="../vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+		<link href="../vendor/venobox/venobox.css" rel="stylesheet">
+		<link href="../vendor/owl.carousel/../owl.carousel.min.css"
+			rel="stylesheet">
+		<link href="../vendor/aos/aos.css" rel="stylesheet">
+		<!-- Template Main CSS File -->
+		<link href="../css/style.css" rel="stylesheet">
+		<!-- =======================================================
+			* Template Name: iPortfolio - v1.2.1
+			* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+			* Author: BootstrapMade.com
+			* License: https://bootstrapmade.com/license/
+			======================================================== -->
+	</head>
+	<body>
+		<!-- ======= Mobile nav toggle button ======= -->
+		<div class="container">
+		<div class="d-flex justify-content-between align-items-center">
+						<h2>Modificar SKUs</h2>
+						<ol>
+							 <a style="margin-top: 7px;" href="index" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">El Deporte Online</a> 
+						</ol>
+					</div>
+					</div>
+		
+			<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+		<form action="#" th:action="@{/sku/update}"
+			th:object="${sku}" method="post">
+			<div class="form-group">
+				<label for="descripcion">Descripción</label> <input autocomplete="off"
+					autofocus th:field="*{descripcion}" id="descripcion"
+					placeholder="Escribe una descripción del producto" type="text"
+					class="form-control"
+					th:classappend="${#fields.hasErrors('descripcion')} ? 'is-invalid' : ''">
+				<div class="invalid-feedback" th:errors="*{descripcion}"></div>
+			</div>
+			<div class="form-group">
+				<label for="codigo">Código</label> <input autocomplete="off"
+					autofocus th:field="*{codigo}" id="codigo"
+					placeholder="Escribe el codigo del producto" type="text"
+					class="form-control"
+					th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''">
+				<div class="invalid-feedback" th:errors="*{codigo}"></div>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlSelect1">Producto</label> <select
+					class="form-control" id="exampleFormControlSelect1"
+					placeholder="Producto" th:field="*{Producto.idProducto}">
+					<option th:each="p : ${producto}" th:value="${p.idProducto}"
+						th:text="${p.nombre}"></option>
+				</select>
+			</div>	
+			<button type="submit" class="btn btn-primary">Modificar</button>
+		</form>
+	</div>
+</body>
+</html>

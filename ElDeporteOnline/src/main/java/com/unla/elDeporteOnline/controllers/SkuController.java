@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.unla.elDeporteOnline.helpers.ViewRouteHelpers;
 import com.unla.elDeporteOnline.entities.Sku;
 import com.unla.elDeporteOnline.models.SkuModel;
+import com.unla.elDeporteOnline.models.SubcategoriaModel;
 import com.unla.elDeporteOnline.models.CategoriaModel;
 import com.unla.elDeporteOnline.models.ProductoModel;
 import com.unla.elDeporteOnline.services.ISkuService;
@@ -49,17 +50,19 @@ public class SkuController {
 	public ModelAndView create() {
 		ModelAndView mav = new ModelAndView(ViewRouteHelpers.SKU_NEW);
 		mav.addObject("sku", new SkuModel());
-		mav.addObject("producto", new ProductoModel());
+		mav.addObject("producto", productoService.getAlls());
 		return mav;
 	}
 	
 	@PostMapping("/create")	
-	public RedirectView agregar(@ModelAttribute("sku") SkuModel skuModel){		
-		skuModel = skuService.insert(skuModel);		
+	public RedirectView create(@ModelAttribute("sku") SkuModel skuModel){
+		skuService.insert(skuModel);
+		/*skuModel = skuService.insert(skuModel);		
 		skuModel.setProducto(productoService.findByIdProducto(skuModel.getProducto().getIdProducto()));
-		skuModel = skuService.update(skuModel);
+		skuModel = skuService.update(skuModel);*/
 		return new RedirectView(ViewRouteHelpers.SKU_ROOT);
 	}	
+	
 
 //	 @GetMapping("/update/{id}")
 //	public ModelAndView update(@PathVariable("id") int id) {
@@ -69,7 +72,7 @@ public class SkuController {
 //	}
 	
 	@GetMapping("/{id}")
-	public ModelAndView get(@PathVariable("id") int idSku) {
+	public ModelAndView get(@PathVariable("id") long idSku) {
 		ModelAndView mav = new ModelAndView(ViewRouteHelpers.SKU_UPDATE);
 		mav.addObject("sku", skuService.findByIdSku(idSku));		
 		return mav;
@@ -77,7 +80,7 @@ public class SkuController {
 	
 	
 	@PostMapping("/delete/{id}")
-	public RedirectView delete(@PathVariable("id") int id) {
+	public RedirectView delete(@PathVariable("id") long id) {
 		skuService.remove(id);
 		return new RedirectView(ViewRouteHelpers.SKU_ROOT);
 	}

@@ -10,6 +10,6 @@ import com.unla.elDeporteOnline.entities.Moneda;
 @Repository("monedaRepository")
 public interface IMonedaRepository extends JpaRepository<Moneda, Serializable>{
 
-	public abstract Moneda findByIdMoneda(int idMoneda);
+	public abstract Moneda findByIdMoneda(long idMoneda);
 
 }

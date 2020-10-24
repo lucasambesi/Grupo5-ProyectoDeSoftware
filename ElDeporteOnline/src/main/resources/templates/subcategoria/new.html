@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta content="width=device-width, initial-scale=1.0" name="viewport">
-		<title>SKUs</title>
+		<title>Subcategorías</title>
 		<meta content="" name="descriptison">
 		<meta content="" name="keywords">
 		<!-- Favicons -->
@@ -34,7 +34,7 @@
 		<!-- ======= Mobile nav toggle button ======= -->
 		<div class="container">
 		<div class="d-flex justify-content-between align-items-center">
-						<h2>Generar SKUs</h2>
+						<h2>Agregar Subcategorías</h2>
 						<ol>
 							 <a style="margin-top: 7px;" href="index" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">El Deporte Online</a> 
 						</ol>
@@ -42,32 +42,24 @@
 					</div>
 		
 			<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
-		<form action="#" th:action="@{/sku/create}"
-			th:object="${sku}" method="post">
+		<form action="#" th:action="@{/subcategoria/create}"
+			th:object="${subcategoria}" method="post">
 			<div class="form-group">
-				<label for="descripcion">Descripción</label> <input autocomplete="off"
-					autofocus th:field="*{descripcion}" id="descripcion"
-					placeholder="Escribe una descripción del producto" type="text"
+				<label for="nombre">Nombre</label> <input autocomplete="off"
+					autofocus th:field="*{nombre}" id="nombre"
+					placeholder="Escribe el nombre de la subcategoría" type="text"
 					class="form-control"
-					th:classappend="${#fields.hasErrors('descripcion')} ? 'is-invalid' : ''">
-				<div class="invalid-feedback" th:errors="*{descripcion}"></div>
+					th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+				<div class="invalid-feedback" th:errors="*{nombre}"></div>
 			</div>
 			<div class="form-group">
-				<label for="codigo">Código</label> <input autocomplete="off"
-					autofocus th:field="*{codigo}" id="codigo"
-					placeholder="Escribe el codigo del producto" type="text"
-					class="form-control"
-					th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''">
-				<div class="invalid-feedback" th:errors="*{codigo}"></div>
-			</div>
-			<div class="form-group">
-				<label for="exampleFormControlSelect1">Producto</label> <select
+				<label for="exampleFormControlSelect1">Categoría</label> <select
 					class="form-control" id="exampleFormControlSelect1"
-					placeholder="Producto" th:field="*{Producto.idProducto}">
-					<option th:each="p : ${producto}" th:value="${p.idProducto}"
-						th:text="${p.nombre}"></option>
+					placeholder="Categoria" th:field="*{Categoria.idCategoria}">
+					<option th:each="c : ${categoria}" th:value="${c.idCategoria}"
+						th:text="${c.nombre}"></option>
 				</select>
-			</div>	
+			</div>
 			<button type="submit" class="btn btn-primary">Agregar</button>
 		</form>
 	</div>
