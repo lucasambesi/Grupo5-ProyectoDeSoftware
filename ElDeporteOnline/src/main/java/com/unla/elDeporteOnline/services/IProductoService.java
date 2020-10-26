@@ -19,6 +19,10 @@ public interface IProductoService {
 	public ProductoModel insert(ProductoModel productoModel);
 
 	public ProductoModel update(ProductoModel productoModel);
+	
+	public List<ProductoModel> findDestacados();
+	
+	public List<ProductoModel> searchByProducto(String producto);
 
 	public boolean remove(long idProducto);
 

@@ -1,4 +1,4 @@
-package com.unla.elDeporteOnline.models;
+/*package com.unla.elDeporteOnline.models;
 
 public class ImagenModel {
 	private int idImagen;
@@ -33,3 +33,4 @@ public class ImagenModel {
 	
 
 }
+*/

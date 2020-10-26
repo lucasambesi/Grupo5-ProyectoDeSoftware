@@ -1,0 +1,3 @@
+1. Correr "schema.sql"
+2. Correr proyecto spring.
+3. Correr "datos.sql"

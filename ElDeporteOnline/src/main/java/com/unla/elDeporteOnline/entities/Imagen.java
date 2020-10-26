@@ -1,4 +1,4 @@
-package com.unla.elDeporteOnline.entities;
+/*package com.unla.elDeporteOnline.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,4 +61,4 @@ public class Imagen {
 
 
 
-}
+}*/

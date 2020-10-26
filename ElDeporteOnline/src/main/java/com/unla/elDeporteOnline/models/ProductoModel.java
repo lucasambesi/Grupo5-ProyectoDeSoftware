@@ -1,9 +1,11 @@
 package com.unla.elDeporteOnline.models;
 
 import java.util.HashSet;
+
 import java.util.Set;
 
-import com.unla.elDeporteOnline.entities.Imagen;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.unla.elDeporteOnline.entities.Sku;
 
 public class ProductoModel {
@@ -12,11 +14,13 @@ public class ProductoModel {
 	private String descripcionCorta;
 	private String descripcionLarga;
 	private SubcategoriaModel subcategoria;
-	private Set<Imagen> listaImagenes = new HashSet<Imagen>();
+	//private Set<Imagen> listaImagenes = new HashSet<Imagen>();
+	private String urlImagen;
 	private boolean activo;
 	private float precio;
 	private MonedaModel moneda;
-	private String foto;
+	private MultipartFile file;
+	//private String foto;
 	
 	private Set<Sku> listaSkus = new HashSet<Sku>();
 	//calificacion
@@ -26,17 +30,18 @@ public class ProductoModel {
 	}
 	
 	public ProductoModel(long idProducto, String nombre, String descripcionCorta, String descripcionLarga,
-			SubcategoriaModel subcategoria, boolean activo, float precio, MonedaModel moneda, String foto) {
+			SubcategoriaModel subcategoria, String urlImagen, boolean activo, float precio, MonedaModel moneda) {
 		super();
 		this.idProducto = idProducto;
 		this.nombre = nombre;
 		this.descripcionCorta = descripcionCorta;
 		this.descripcionLarga = descripcionLarga;
 		this.subcategoria = subcategoria;
+		this.urlImagen = urlImagen;
 		this.activo = activo;
 		this.precio = precio;
 		this.moneda = moneda;
-		this.foto = foto;
+		//this.foto = foto;
 	}
 	
 
@@ -72,14 +77,6 @@ public class ProductoModel {
 		this.subcategoria = subcategoria;
 	}
 	
-	public Set<Imagen> getListaImagenes() {
-		return listaImagenes;
-	}
-
-	public void setListaImagenes(Set<Imagen> listaImagenes) {
-		this.listaImagenes = listaImagenes;
-	}
-
 	public boolean isActivo() {
 		return activo;
 	}
@@ -107,13 +104,22 @@ public class ProductoModel {
 		this.listaSkus = listaSkus;
 	}
 
-	public String getFoto() {
-		return foto;
+	public String getUrlImagen() {
+		return urlImagen;
 	}
 
-	public void setFoto(String foto) {
-		this.foto = foto;
+	public void setUrlImagen(String urlImagen) {
+		this.urlImagen = urlImagen;
 	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	
 	
 

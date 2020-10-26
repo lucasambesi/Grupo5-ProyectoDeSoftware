@@ -58,6 +58,7 @@ public class ProductoService implements IProductoService{
 	public ProductoModel findByNombre(String nombre) {
 		return productoConverter.entityToModel(productoRepository.findByNombre(nombre));
 	}
+	
 
 	@Override
 	public ProductoModel insert(ProductoModel productoModel) {
@@ -82,5 +83,23 @@ public class ProductoService implements IProductoService{
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	
+	public List<ProductoModel> searchByProducto(String producto) {
+		List<Producto> productos = productoRepository.findBydescripcionCortaContainingIgnoreCase(producto);
+		List<ProductoModel> pM = new ArrayList<ProductoModel>();
+		for (Producto p : productos) {
+			pM.add(productoConverter.entityToModel(p));
+		}
+		return pM;
+	}
+	
+	public List<ProductoModel> findDestacados() {
+		List<Producto> productos = productoRepository.findDestacados();
+		List<ProductoModel> pM = new ArrayList<ProductoModel>();
+		for (Producto p : productos) {
+			pM.add(productoConverter.entityToModel(p));
+		}
+		return pM;
 	}
 }

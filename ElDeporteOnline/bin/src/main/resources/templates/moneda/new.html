@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<title>Monedas</title>
+		<meta content="" name="descriptison">
+		<meta content="" name="keywords">
+		<!-- Favicons -->
+		<link href="../../img/favicon.png" rel="icon">
+		<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon">
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+			rel="stylesheet">
+		<!-- Vendor CSS Files -->
+		<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../vendor/icofont/icofont.min.css" rel="stylesheet">
+		<link href="../vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+		<link href="../vendor/venobox/venobox.css" rel="stylesheet">
+		<link href="../vendor/owl.carousel/../owl.carousel.min.css"
+			rel="stylesheet">
+		<link href="../vendor/aos/aos.css" rel="stylesheet">
+		<!-- Template Main CSS File -->
+		<link href="../css/style.css" rel="stylesheet">
+		<!-- =======================================================
+			* Template Name: iPortfolio - v1.2.1
+			* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+			* Author: BootstrapMade.com
+			* License: https://bootstrapmade.com/license/
+			======================================================== -->
+	</head>
+	<body>
+		<!-- ======= Mobile nav toggle button ======= -->
+		<div class="container">
+		<div class="d-flex justify-content-between align-items-center">
+						<h2>Agregar Monedas</h2>
+						<ol>
+							 <a style="margin-top: 7px;" href="index" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">El Deporte Online</a> 
+						</ol>
+					</div>
+					</div>
+			<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+		<form action="#" th:action="@{/moneda/create}"
+			th:object="${moneda}" method="post">
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input autocomplete="off"
+					autofocus th:field="*{nombre}" id="nombre"
+					placeholder="Escribe el nombre de la categoría" type="text"
+					class="form-control"
+					th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+				<div class="invalid-feedback" th:errors="*{nombre}"></div>
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Agregar</button>
+			
+		</form>
+	</div>
+</body>
+</html>

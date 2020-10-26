@@ -7,14 +7,10 @@ public class ViewRouteHelpers {
 	public final static String HELLO = "home/hello";
 	public final static String FORMCONT = "home/formulariocontacto";
 	public final static String INSTITUCIONAL = "home/nosotros";
-	public final static String CLI = "home/cliente";
-	public final static String EMP = "home/empresa";
-	
-
-	// EMPLEADO
-	public final static String EMPLEADO_INDEX = "empleado/index";
-	public final static String EMPLEADO_NEW = "empleado/new";
-	public final static String EMPLEADO_UPDATE = "empleado/update";
+	public final static String EMP = "home/empleado";
+	public final static String ALLPRODUCTOS = "home/allproductos";
+	public final static String PEDIDOPRODUCTO = "home/pedido";
+	public final static String CHECKOUT = "home/checkout";
 	
 	// PRODUCTO
 	public final static String PRODUCTO_INDEX = "producto/index";

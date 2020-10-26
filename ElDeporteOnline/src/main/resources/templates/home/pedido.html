@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>El Deporte Online</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/small-business.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/main-comments.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/star-rating.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Page Content -->
+  <div class="container">
+
+
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+      <div class="col-lg-7">
+        <img th:src="${producto.urlImagen}" class="img-fluid rounded mb-4 mb-lg-0" >
+      </div>
+      <!-- /.col-lg-8 -->
+      <div class="col-lg-5">
+        <h1 class="font-weight-light" th:text="${producto.nombre}"></h1>
+       <h1 th:text="'$' + ${producto.precio}"></h1>
+        <a class="btn btn-primary btn-lg" href="@{/producto/pedido/{id}/checkout(id=${producto.idProducto})}" role="button">COMPRAR</a>
+       
+      </div>
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+    
+ 		<div class="col-lg-5">
+
+        <h2 class="font-weight-light" th:text="${producto.descripcionCorta}"></h2>
+        <h4><p th:text="${producto.descripcionLarga}"></p></h4>
+      </div>
+
+  </div>
+  <br> 
+  <br> 
+  
+  <center><h2>Quienes vieron este producto también compraron</h2></center>
+  	<div class="productosDestacados">
+
+		<div class="row">
+
+
+			<div th:each="producto : ${productos}" class="col-lg-2 col-md-3 mb-2">
+				<div class="card h-100">
+					<a th:href="@{/producto/pedido/{id}(id=${producto.idProducto})}"> <img
+						th:src="${producto.urlImagen}" class="card-img-top" alt=""></a>
+					<div class="card-body">
+						<h4 class="card-title">
+							<a th:text="${producto.descripcionCorta}" class="card-text"></a>
+						</h4>
+						<h5 th:text="'$' + ${producto.precio}"></h5>
+						<p th:text="${producto.descripcionLarga}" class="card-text"></p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script type="text/javascript" src="/js/star-rating.js"></script>
+  <script src="/themes/krajee-fa/theme.js" type="text/javascript"></script>
+  <script src="/themes/krajee-svg/theme.js" type="text/javascript"></script>
+  <script src="/themes/krajee-uni/theme.js" type="text/javascript"></script>
+
+  
+</body>
+
+</html>

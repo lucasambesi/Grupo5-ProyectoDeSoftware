@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+<title>El Deporte Online</title>
+</head>
+<body style="padding-top: 3.3%;">
+
+	<div class="pos-f-t">
+		<div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+			<div class="bg-dark p-4">
+				<ul class="nav">
+					<li class="nav-item">
+						<a class="nav-link" href="allproductos">Todos los productos</a> 
+						<a class="nav-link" href="#">Categorias</a>
+						<ul class="submenu">
+							<li th:each="categoria : ${categorias}" class="nav-item"><a
+								class="nav-link" th:text=${categoria.nombre}
+								th:href="@{/categoria/{id}(id=${categoria.idCategoria})}">Categoria</a>
+								
+								<a class="nav-link" href="#"></a>
+						<ul class="submenu">
+							<li th:each="subcategoria : ${subcategorias}" class="nav-item"><a
+								class="nav-link" th:text=${subcategoria.nombre}
+								th:href="@{/subcategoria/{id}(id=${subcategoria.idSubcategoria})}">Subcategoria</a>
+								
+							</li>
+						</ul> 
+								
+								
+								
+								
+							</li>
+						</ul> 
+						<a class="nav-link" href="formulariocontacto">Formulario de Contacto</a> 
+						<a class="nav-link" href="nosotros">Nosotros</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<nav class="navbar fixed-top navbar-dark bg-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarToggleExternalContent"
+				aria-controls="navbarToggleExternalContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<a class="nav-link" href="carrito"> <i
+				class="fas fa-shopping-cart"></i></a>
+			<!-- (<label style= "color: orange">${contador} </label>) -->
+			<a class="nav-link" href="empleado"> <i class="fas fa-user"></i>
+			</a> <a href="index" class="btn btn-dark btn-lg active" role="button"
+				aria-pressed="true">El Deporte Online</a>
+		</nav>
+	</div>
+
+	<!--<form th:object="${productoSearch}" method="GET"
+				th:action="@{/productoSearch}"
+				class="mr-2 my-auto w-25 d-inline-block order-5">
+
+				<div class="input-group">
+					<input type="text" th:value="${productoSearch}"
+						name="productoSearch" id="productoSearch"
+						class="form-control border border-right-0"
+						placeholder="¿Que producto estas buscando?"> <span
+						class="input-group-append">
+
+						<button class="btn btn-outline-light border border-left-0"
+							type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+
+					</span>
+				</div>
+			</form>-->
+
+	<div class="slider">
+		<ul>
+			<li><img src="img/banner0.jpg" alt=""></li>
+			<li><img src="img/banner1.jpg" alt=""></li>
+			<li><img src="img/banner2.jpg" alt=""></li>
+			<li><img src="img/banner3.jpg" alt=""></li>
+		</ul>
+	</div>
+	
+
+	<h4 style="text-align: center; margin-top: 100px;">Todos los productos</h4>
+
+
+	<div class="allProductos">
+
+		<div class="row">
+
+
+			<div th:each="producto : ${productos}" class="col-lg-4 col-md-6 mb-4">
+				<div class="card h-100">
+					<a th:href="@{/producto/pedido/{id}(id=${producto.idProducto})}"> <img
+						th:src="${producto.urlImagen}" class="card-img-top" alt=""></a>
+					<div class="card-body">
+						<h4 class="card-title">
+							<a th:text="${producto.descripcionCorta}" class="card-text"></a>
+						</h4>
+						<h5 th:text="'$' + ${producto.precio}"></h5>
+						<p th:text="${producto.descripcionLarga}" class="card-text"></p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+</html>

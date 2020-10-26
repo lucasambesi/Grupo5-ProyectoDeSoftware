@@ -1,13 +1,21 @@
 package com.unla.elDeporteOnline.controllers;
 
+import java.io.File;
+
+
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +31,7 @@ import com.unla.elDeporteOnline.services.ICategoriaService;
 import com.unla.elDeporteOnline.services.IMonedaService;
 import com.unla.elDeporteOnline.services.IProductoService;
 import com.unla.elDeporteOnline.services.ISubcategoriaService;
+
 import com.unla.elDeporteOnline.entities.Producto;
 import com.unla.elDeporteOnline.helpers.ViewRouteHelpers;
 import com.unla.elDeporteOnline.models.CategoriaModel;
@@ -81,7 +90,7 @@ public class ProductoController {
 		return new RedirectView(ViewRouteHelpers.PRODUCTO_ROOT);
 	}*/	
 	
-	@PostMapping("/create")
+	/*@PostMapping("/create")
 	public RedirectView agregar (@ModelAttribute("producto") @RequestParam(name = "file", required = false) MultipartFile foto, ProductoModel productoModel,
 			RedirectAttributes flash) {
 		if(!foto.isEmpty()) {
@@ -103,6 +112,58 @@ public class ProductoController {
 		}
 		
 		return new RedirectView(ViewRouteHelpers.PRODUCTO_ROOT);
+	}*/
+	
+	@PostMapping("/create")
+	public RedirectView agregar(@Valid @ModelAttribute("producto") ProductoModel productoModel,
+			@RequestParam(name = "file", required = false) MultipartFile foto, BindingResult result,
+			RedirectAttributes redirect) {
+		if (result.hasErrors()) {
+			return new RedirectView(ViewRouteHelpers.PRODUCTO_ROOT);
+
+		}
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(Paths.get("")
+        .toAbsolutePath()
+        .toString());
+		stringBuilder.append(File.separator);		
+		stringBuilder.append("src");
+		stringBuilder.append(File.separator);
+		stringBuilder.append("main");
+		stringBuilder.append(File.separator);
+		stringBuilder.append("resources");
+		stringBuilder.append(File.separator);
+		stringBuilder.append("static");
+		stringBuilder.append(File.separator);
+		stringBuilder.append("images");
+		stringBuilder.append(File.separator);
+		stringBuilder.append(foto.getOriginalFilename());
+
+		byte[] bytes = null;
+		try {
+			bytes = foto.getBytes();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Path path = Paths.get(stringBuilder.toString());
+		try {
+			Files.write(path, bytes);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		productoModel.setUrlImagen("/images/" + foto.getOriginalFilename());
+		/*// TODO Codigo SKU
+		productoModel.setSubCategoria(subcategoriaService.listarId(productoModel.getSubcategoria().getIdSubcategoria()));
+		ProductoModel pM=	productoService.insertOrUpdate(productoModel);
+		if(pM!=null) {	
+		return "redirect:/productos/newAtributo/" + pM.getId();
+		}else {
+		redirect.addAttribute("message", "error al agregar el producto");	
+		return	"redirect:/productos/newProducto/"+productoModel.getSubCategoria().getId();
+		
+		}*/
+		productoModel = productoService.insert(productoModel);
+		return new RedirectView(ViewRouteHelpers.PRODUCTO_ROOT);
 	}
 
 //	 @GetMapping("/update/{id}")
@@ -113,7 +174,7 @@ public class ProductoController {
 //	}
 	
 	@GetMapping("/{id}")
-	public ModelAndView get(@PathVariable("id") int id) {
+	public ModelAndView get(@PathVariable("id") long id) {
 		ModelAndView mav = new ModelAndView(ViewRouteHelpers.PRODUCTO_UPDATE);
 		mav.addObject("producto", productoService.findByIdProducto(id));	
 		mav.addObject("subcategoria", subcategoriaService.getAlls());
@@ -128,7 +189,36 @@ public class ProductoController {
 		return new RedirectView(ViewRouteHelpers.PRODUCTO_ROOT);
 	}	
 	
+	@GetMapping("/pedido/{id}")
+	public ModelAndView pedidoProducto(@PathVariable("id") long idProducto) {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelpers.PEDIDOPRODUCTO);
+		ProductoModel pedido = productoService.findByIdProducto(idProducto);
+		mAV.addObject("producto", pedido);
+		
+		List<ProductoModel> productos = productoService.findDestacados();
+		if(productos!= null){
+			mAV.addObject("productos", productos);
+		}
+		
+		//List<ProductoModel> relacionados = productoService.findBySubCategoria(articulo.getSubCategoriaModel().getId());
+		
+		/*List<ProductoModel> relacionados = productoService.findRelacionados(articulo.getId(),articulo.getSubCategoria().getId());
+		mAV.addObject("relacionados", relacionados);
+		ComentarioModel comentarioModel = new ComentarioModel();
+		mAV.addObject("comentario", comentarioModel);
+
+		List<ComentarioModel> comentarios = comentarioService.getByProducto(id);
+		mAV.addObject("comentarios", comentarios);*/
+
+		return mAV;
+	}
 	
+	/*@GetMapping("/pedido/{id}/checkout")
+	public ModelAndView checkout(@PathVariable("id") long idProducto) {
+		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.CHECKOUT);
+
+		return modelAndView;
+	}*/
 	
 	@GetMapping("/allproductos")
 	public String allproductos(Model model) {

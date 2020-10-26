@@ -43,8 +43,11 @@ public class Producto {
 	@JoinColumn(name = "idSubcategoria", nullable = false)
 	private Subcategoria subcategoria;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
-	private Set<Imagen> listaImagenes = new HashSet<Imagen>();
+	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
+	private Set<Imagen> listaImagenes = new HashSet<Imagen>();*/
+	
+	@Column(name = "urlImagen", nullable = false)
+	private String urlImagen;
 	
 	@Column(name = "activo")
 	private boolean activo;
@@ -59,26 +62,28 @@ public class Producto {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
 	private Set<Sku> listaSku = new HashSet<Sku>();
 	
-	@Column(name = "foto")
+	/*@Column(name = "foto")
 	private String foto;
 	
-	//calificacion
+	//calificacion*/
 
 	public Producto() {
 		super();
 	}
 
-	public Producto(long idProducto, String nombre, String descripcionCorta, String descripcionLarga, Subcategoria subcategoria, boolean activo, float precio, Moneda moneda, String foto) {
+	public Producto(long idProducto, String nombre, String descripcionCorta, String descripcionLarga, Subcategoria subcategoria, 
+			String urlImagen, boolean activo, float precio, Moneda moneda) {
 		super();
 		this.idProducto = idProducto;
 		this.nombre = nombre;
 		this.descripcionCorta = descripcionCorta;
 		this.descripcionLarga = descripcionLarga;
 		this.subcategoria = subcategoria;
+		this.urlImagen = urlImagen;
 		this.activo = activo;
 		this.precio = precio;
 		this.moneda = moneda;
-		this.foto = foto;
+		//this.foto = foto;
 	}
 
 	public long getIdProducto() {
@@ -145,14 +150,6 @@ public class Producto {
 		this.moneda = moneda;
 	}
 
-	public Set<Imagen> getListaImagenes() {
-		return listaImagenes;
-	}
-
-	public void setListaImagenes(Set<Imagen> listaImagenes) {
-		this.listaImagenes = listaImagenes;
-	}
-
 	public Set<Sku> getListaSku() {
 		return listaSku;
 	}
@@ -161,16 +158,14 @@ public class Producto {
 		this.listaSku = listaSku;
 	}
 
-	public String getFoto() {
-		return foto;
+	public String getUrlImagen() {
+		return urlImagen;
 	}
 
-	public void setFoto(String foto) {
-		this.foto = foto;
+	public void setUrlImagen(String urlImagen) {
+		this.urlImagen = urlImagen;
 	}
-	
-	
-	
+
 	
 	
 

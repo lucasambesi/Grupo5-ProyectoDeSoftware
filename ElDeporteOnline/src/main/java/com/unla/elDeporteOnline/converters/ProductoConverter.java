@@ -21,15 +21,15 @@ public class ProductoConverter {
 
     public ProductoModel entityToModel(Producto producto) {
         return new ProductoModel(producto.getIdProducto(), producto.getNombre() ,producto.getDescripcionCorta(), 
-                    producto.getDescripcionLarga(), subcategoriaConverter.entityToModel(producto.getSubcategoria()), producto.isActivo(), 
-                    producto.getPrecio(), monedaConverter.entityToModel(producto.getMoneda()), producto.getFoto());
+                    producto.getDescripcionLarga(), subcategoriaConverter.entityToModel(producto.getSubcategoria()),
+                    producto.getUrlImagen(), producto.isActivo(), 
+                    producto.getPrecio(), monedaConverter.entityToModel(producto.getMoneda()));
         }
 
         public Producto modelToEntity(ProductoModel productoModel) {
             return new Producto(productoModel.getIdProducto(), productoModel.getNombre(), productoModel.getDescripcionCorta(),
                     productoModel.getDescripcionLarga(), subcategoriaConverter.modelToEntity(productoModel.getSubcategoria()), 
-                    productoModel.isActivo(), productoModel.getPrecio(), monedaConverter.modelToEntity(productoModel.getMoneda()),
-                    productoModel.getFoto());
+                     productoModel.getUrlImagen(), productoModel.isActivo(), productoModel.getPrecio(), monedaConverter.modelToEntity(productoModel.getMoneda()));
         }
 
 }

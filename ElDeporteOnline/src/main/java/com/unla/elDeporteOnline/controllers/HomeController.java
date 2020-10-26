@@ -1,36 +1,96 @@
 package com.unla.elDeporteOnline.controllers;
 
+import java.util.List;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.unla.elDeporteOnline.entities.Producto;
 import com.unla.elDeporteOnline.helpers.ViewRouteHelpers;
+import com.unla.elDeporteOnline.models.CategoriaModel;
+import com.unla.elDeporteOnline.models.ProductoModel;
+import com.unla.elDeporteOnline.models.SubcategoriaModel;
+import com.unla.elDeporteOnline.services.ICategoriaService;
+import com.unla.elDeporteOnline.services.IProductoService;
+import com.unla.elDeporteOnline.services.ISubcategoriaService;
+
+
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
+	
+	@Autowired
+	@Qualifier("productoService")
+	private IProductoService productoService;
+	
+	@Autowired
+	@Qualifier("categoriaService")
+	private ICategoriaService categoriaService;
+	
+	@Autowired
+	@Qualifier("subcategoriaService")
+	private ISubcategoriaService subcategoriaService;
 
 	// GET Example: SERVER/index
 	@GetMapping("/index")
 	public ModelAndView index() {
-		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.INDEX);
+		ModelAndView mav = new ModelAndView(ViewRouteHelpers.INDEX);
+		/*mav.addObject("productos", productoService.getAll());
+		mav.addObject("categorias", categoriaService.getAll());
+		mav.addObject("subcategorias", subcategoriaService.getAll());*/
+		
+		List<ProductoModel> productos = productoService.findDestacados();
+		if(productos!= null){
+			mav.addObject("productos", productos);
+		}
+		
+		List<CategoriaModel> categorias = categoriaService.getAlls();
+		if (categorias != null) {
+			mav.addObject("categorias", categorias);
+		}
+		
+		List<SubcategoriaModel> subCategorias = subcategoriaService.getAlls();
+		if (subCategorias != null) {
+			mav.addObject("subcategorias", subCategorias);
+		}
 
-		return modelAndView;
+		return mav;
 	}
 	
-	@GetMapping("/cliente")
-	public ModelAndView cli() {
-		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.CLI);
+	@GetMapping("/allproductos")
+	public ModelAndView allproductos() {
+		ModelAndView mav = new ModelAndView(ViewRouteHelpers.ALLPRODUCTOS);
+		mav.addObject("productos", productoService.getAlls());
+		/*mav.addObject("categorias", categoriaService.getAll());
+		mav.addObject("subcategorias", subcategoriaService.getAll());*/
+		
+		
+		List<CategoriaModel> categorias = categoriaService.getAlls();
+		if (categorias != null) {
+			mav.addObject("categorias", categorias);
+		}
+		
+		List<SubcategoriaModel> subCategorias = subcategoriaService.getAlls();
+		if (subCategorias != null) {
+			mav.addObject("subcategorias", subCategorias);
+		}
 
-		return modelAndView;
+		return mav;
 	}
-	
-	@GetMapping("/empresa")
+
+	@GetMapping("/empleado")
 	public ModelAndView emp() {
 		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.EMP);
 
@@ -73,4 +133,24 @@ public class HomeController {
 	public RedirectView redirectToHomeIndex() {
 		return new RedirectView(ViewRouteHelpers.ROUTE);
 	}
+	
+    @RequestMapping(value = "productoSearch", method = RequestMethod.GET)
+	public ModelAndView search(@Param("productoSearch") String productoSearch) {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelpers.INDEX);
+
+		List<ProductoModel> productos = productoService.searchByProducto(productoSearch);
+		if(productos!= null){
+			mAV.addObject("productos", productos);
+		}
+
+		return mAV;
+	}
+    
+	@GetMapping("/checkout")
+	public ModelAndView checkout() {
+		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.CHECKOUT);
+
+		return modelAndView;
+	}
+	
 }

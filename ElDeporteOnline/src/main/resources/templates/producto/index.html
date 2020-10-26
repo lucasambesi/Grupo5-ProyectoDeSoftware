@@ -47,7 +47,7 @@
 		<div class="d-flex justify-content-between align-items-center">
 			<h2>Administrar Productos</h2>
 				<ol>
-			 		 <a style="margin-top: 7px;" href="index" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">El Deporte Online</a> 
+			 		 <a style="margin-top: 7px;" href="empleado" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">Volver</a>  
 				</ol>
 		</div>
 	<table class="table">
@@ -59,7 +59,7 @@
 				<th>Descripcion corta</th>
 				<th>Descripcion larga</th>
 				<th>Subcategoria</th>
-				<th>Activo</th>
+				<th>Destacado</th>
 				<th>Precio</th>
 				<th>Moneda</th>
 				<th></th>
@@ -68,7 +68,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="producto : ${productos}">
-				<td> <img <img width="100px" height="100px" th:src="@{'/uploads/'+${producto.foto}}"> </td>
+				<td> <img th:src="${producto.urlImagen}" class="card-img-top" alt=""> </td>
 				<td><span th:text="${producto.idProducto}" /></td>
 				<td><span th:text="${producto.nombre}" /></td>
 				<td><span th:text="${producto.descripcionCorta}" /></td>
