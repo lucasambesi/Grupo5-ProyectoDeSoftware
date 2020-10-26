@@ -10,7 +10,7 @@ public class ViewRouteHelpers {
 	public final static String EMP = "home/empleado";
 	public final static String ALLPRODUCTOS = "home/allproductos";
 	public final static String PEDIDOPRODUCTO = "home/pedido";
-	public final static String CHECKOUT = "home/checkout";
+	public final static String CHECKOUTPRODUCTO = "home/checkout";
 	
 	// PRODUCTO
 	public final static String PRODUCTO_INDEX = "producto/index";

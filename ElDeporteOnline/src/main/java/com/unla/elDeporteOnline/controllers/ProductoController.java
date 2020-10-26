@@ -3,6 +3,7 @@ package com.unla.elDeporteOnline.controllers;
 import java.io.File;
 
 
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -35,6 +36,7 @@ import com.unla.elDeporteOnline.services.ISubcategoriaService;
 import com.unla.elDeporteOnline.entities.Producto;
 import com.unla.elDeporteOnline.helpers.ViewRouteHelpers;
 import com.unla.elDeporteOnline.models.CategoriaModel;
+import com.unla.elDeporteOnline.models.CheckoutModel;
 import com.unla.elDeporteOnline.models.MonedaModel;
 import com.unla.elDeporteOnline.models.ProductoModel;
 
@@ -213,12 +215,27 @@ public class ProductoController {
 		return mAV;
 	}
 	
-	/*@GetMapping("/pedido/{id}/checkout")
-	public ModelAndView checkout(@PathVariable("id") long idProducto) {
-		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.CHECKOUT);
+	@GetMapping("/pedido/{id}/checkout")
+	public ModelAndView productoCompra(@PathVariable("id") long idProducto) {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelpers.CHECKOUTPRODUCTO);
 
-		return modelAndView;
-	}*/
+		int codigo=0;
+		ProductoModel pedido = productoService.findByIdProducto(idProducto);
+		mAV.addObject("codigo", codigo);
+		mAV.addObject("prodId", pedido.getIdProducto());
+		
+		mAV.addObject("producto", pedido);
+		CheckoutModel checkout = new CheckoutModel();
+		//EmbalajeModel embalaje = new EmbalajeModel();
+		//pedido.setEmbalaje(embalaje);
+		mAV.addObject("checkout", checkout);
+
+		//List<EmbalajeModel> embalajes = embalajeService.getAll();
+
+		//mAV.addObject("embalajes", embalajes);
+
+		return mAV;
+	}
 	
 	@GetMapping("/allproductos")
 	public String allproductos(Model model) {

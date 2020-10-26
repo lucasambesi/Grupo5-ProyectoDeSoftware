@@ -39,8 +39,8 @@
       <div class="col-lg-5">
         <h1 class="font-weight-light" th:text="${producto.nombre}"></h1>
        <h1 th:text="'$' + ${producto.precio}"></h1>
-        <a class="btn btn-primary btn-lg" href="@{/producto/pedido/{id}/checkout(id=${producto.idProducto})}" role="button">COMPRAR</a>
-       
+        <a class="btn btn-primary btn-lg" th:href="@{/producto/pedido/{id}/checkout(id=${producto.idProducto})}" role="button">COMPRAR</a>
+       														
       </div>
       <!-- /.col-md-4 -->
     </div>
@@ -80,6 +80,7 @@
 		</div>
 
 	</div>
+	
   
   <!-- Bootstrap core JavaScript -->
   <script src="/vendor/jquery/jquery.min.js"></script>

@@ -146,11 +146,5 @@ public class HomeController {
 		return mAV;
 	}
     
-	@GetMapping("/checkout")
-	public ModelAndView checkout() {
-		ModelAndView modelAndView = new ModelAndView(ViewRouteHelpers.CHECKOUT);
-
-		return modelAndView;
-	}
 	
 }

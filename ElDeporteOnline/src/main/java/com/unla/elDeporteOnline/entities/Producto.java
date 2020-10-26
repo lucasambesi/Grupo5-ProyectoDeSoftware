@@ -1,7 +1,7 @@
 package com.unla.elDeporteOnline.entities;
 
 import java.util.HashSet;
-
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import com.unla.elDeporteOnline.models.CategoriaModel;
 import com.unla.elDeporteOnline.models.MonedaModel;
 import com.unla.elDeporteOnline.models.SkuModel;
+
 
 @Entity
 @Table(name = "producto")
@@ -43,9 +44,6 @@ public class Producto {
 	@JoinColumn(name = "idSubcategoria", nullable = false)
 	private Subcategoria subcategoria;
 	
-	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
-	private Set<Imagen> listaImagenes = new HashSet<Imagen>();*/
-	
 	@Column(name = "urlImagen", nullable = false)
 	private String urlImagen;
 	
@@ -62,8 +60,8 @@ public class Producto {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
 	private Set<Sku> listaSku = new HashSet<Sku>();
 	
-	/*@Column(name = "foto")
-	private String foto;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
+	private List<Checkout> checkouts;
 	
 	//calificacion*/
 
@@ -164,6 +162,14 @@ public class Producto {
 
 	public void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
+	}
+
+	public List<Checkout> getCheckouts() {
+		return checkouts;
+	}
+
+	public void setCheckouts(List<Checkout> checkouts) {
+		this.checkouts = checkouts;
 	}
 
 	
